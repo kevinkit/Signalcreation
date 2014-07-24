@@ -5,7 +5,7 @@
 
 
 //function will set random vectors at random points 
-int rand_rects(int max, int min,int input_size, int zerogap,int rectgap, int endgap, int rect_size, int A, int* input_vector, int noise, int offset ,int percent)
+int rand_rects(int max, int min,int input_size, int zerogap,int rectgap, int endgap, int rect_size, int A, int* input_vector, int noise, int offset ,int percent, int* positions)
 {
         //Checking if there are any rects set
         
@@ -82,6 +82,7 @@ int rand_rects(int max, int min,int input_size, int zerogap,int rectgap, int end
 
                         if(var == 1){
                                 printf("The positon[%i] is %d\n",i-1,pos[i-1]);
+				positions[i-1] = pos[i-1];
 				var = 0;
 				y = 0;
 				break;
@@ -165,6 +166,7 @@ int rand_rects(int max, int min,int input_size, int zerogap,int rectgap, int end
                         input_vector[i] += input_vector[i] + rand()%noise - noise;          
                 }                                                        
         }                                                                
-                                                                         
+        
+        return anz;                                                                 
 	free(pos);
 } 
